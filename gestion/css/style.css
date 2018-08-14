@@ -1,0 +1,119 @@
+body {
+	background-color : white;
+	color : black;
+}
+
+th {
+	color : black;
+	font-weight : bold;
+	width : 50px;
+}
+
+td {
+	text-align : right;
+	color : grey;
+	padding-right : 1%;
+}
+
+tr:nth-child(even){background-color: #f2f2f2}
+
+#progression {
+	clear : both;
+	width : 100%;
+}
+
+#compteur_total {
+	display : inline-block;
+	float : left;
+	padding-right : 1%;
+}
+
+#graphe_categorie {
+	border-left : 1px solid black;
+	border-right : 1px solid black;
+	padding-left : 1%; 
+	padding-right : 1%;
+	float : left;
+	max-width : 15%;
+	font-size : small;
+	height : auto;
+}
+
+#liste_theme {
+	float : left;
+	padding-right : 1%;
+	padding-left : 1%;
+}
+
+#tableau_erreur {
+	float : left;
+	border-left : 1px solid black;
+	padding-right : 1%;
+	border-right : 1px solid black;
+	padding-left : 1%;
+}
+
+#tableau_erreur a {
+	text-decoration : none;
+	color : orange;
+	font-size : small;
+}
+#taille_bdd {
+	float : left;
+	padding-left : 1%;
+}
+
+#mail {
+	max-width : 30%;
+	max-height : 500px;
+	overflow : scroll;
+	display : inline-block;
+	float : left;
+	padding-right : 1%;
+	padding-left : 1%;
+	border-right : 1px solid black;
+}
+
+#rss {
+	max-width : 30%;
+	max-height : 500px;
+	overflow : scroll;
+	float : left;
+	padding-right : 1%;
+	padding-left : 1%;
+	border-right : 1px solid black;
+}
+
+#ref {
+	max-width : 30%;
+	max-height : 500px;
+	overflow : scroll;
+	float : left;
+	padding-right : 1%;
+	padding-left : 1%;
+}
+
+.titre {
+	font-size : large;
+	font-weight : bold;
+	color : blue;
+}
+
+#formulaire_edition {
+	display : inline-block;
+	float : left;
+	max-width : 80%;
+}
+
+#liste_rss {
+	display : inline-block;
+	float : left;
+	max-width : 30%;
+	max-height : 500px;
+	overflow : scroll;
+}
+
+#fiche_rss {
+	float : left;
+	margin : 0% 0% 0% 1%;
+}

@@ -1,0 +1,3 @@
+User-agent: *
+Disallow: /gestion/
+Sitemap: http://www.ermss.leglou.com/google_sitemap.xml.gz
