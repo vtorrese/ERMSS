@@ -1,0 +1,4 @@
+
+MAJ 'google' effectuee le 15 Aug 2018 23:40, duree d'execution : 7.05 sec, Nb de resultats 10
+MAJ 'google' effectuee le 15 Aug 2018 23:41, duree d'execution : 7.24 sec, Nb de resultats 10
+MAJ 'google' effectuee le 15 Aug 2018 23:48, duree d'execution : 72.3 sec, Nb de resultats 100
