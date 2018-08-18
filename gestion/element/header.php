@@ -20,9 +20,9 @@
 <?php $chemin = array_reverse(explode("/",$_SERVER['SCRIPT_NAME'])); 
 if (($chemin[1]=='gestion')&&($chemin[0]=='index.php')) {$href="element/";} else {$href="";}
 ?>
-<input style= "color : red;" type="button" name="maj" value="MaJ" onclick="self.location.href='<?php echo $href."maj.php";?>'">
-<input style= "color : blue;" type="button" name="Newmaj" value="NewMaJ" onclick="self.location.href='<?php echo $href."Newmaj.php";?>'">
-<input style= "color : green;" type="button" name="test" value="test" onclick="self.location.href='<?php echo $href."testpy.php";?>'">
+<input style= "color : red;" type="button" name="maj" value="MaJ" onclick="self.location.href='<?php echo $href."majx.php";?>'">
+<!-- <input style= "color : blue;" type="button" name="Newmaj" value="NewMaJ" onclick="self.location.href='<?php echo $href."Newmaj.php";?>'">
+<input style= "color : green;" type="button" name="test" value="test" onclick="self.location.href='<?php echo $href."testpy.php";?>'"> -->
  |
 <input type="button" name="param" value="Paramètres" onclick="self.location.href='<?php echo $href."param.php";?>'">
 

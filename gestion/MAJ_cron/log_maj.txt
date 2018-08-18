@@ -1,4 +1,12 @@
 
-MAJ 'google' effectuee le 15 Aug 2018 23:40, duree d'execution : 7.05 sec, Nb de resultats 10
-MAJ 'google' effectuee le 15 Aug 2018 23:41, duree d'execution : 7.24 sec, Nb de resultats 10
-MAJ 'google' effectuee le 15 Aug 2018 23:48, duree d'execution : 72.3 sec, Nb de resultats 100
+MAJ 'google' effectuee le 16 Aug 2018 13:43, duree d'execution : 72.99 sec, Nb de resultats 74
+MAJ 'persee' effectuee le 17 Aug 2018 09:58, duree d'execution : 4.04 sec, Nb de resultats 10
+MAJ 'persee' effectuee le 17 Aug 2018 09:59, duree d'execution : 4.03 sec, Nb de resultats 10
+MAJ 'persee' effectuee le 17 Aug 2018 10:00, duree d'execution : 40.06 sec, Nb de resultats 100
+MAJ 'persee' effectuee le 17 Aug 2018 10:05, duree d'execution : 40.51 sec, Nb de resultats 100
+MAJ 'persee' effectuee le 17 Aug 2018 10:11, duree d'execution : 40.51 sec, Nb de resultats 100
+MAJ 'persee' effectuee le 17 Aug 2018 10:15, duree d'execution : 40.57 sec, Nb de resultats 100
+MAJ 'persee' effectuee le 17 Aug 2018 10:17, duree d'execution : 40.04 sec, Nb de resultats 74
+MAJ 'persee' effectuee le 17 Aug 2018 10:24, duree d'execution : 40.08 sec, Nb de resultats 63
+MAJ 'persee' effectuee le 17 Aug 2018 10:35, duree d'execution : 40.18 sec, Nb de resultats 6
+MAJ 'persee' effectuee le 17 Aug 2018 10:38, duree d'execution : 40.11 sec, Nb de resultats 0

@@ -9,7 +9,7 @@ class Rss extends Modele {
 	
 	//pour tout récupérer
 	public function ttrecup() {
-			$sql="SELECT * FROM `rss`ORDER BY date DESC";
+			$sql="SELECT * FROM `rss`ORDER BY IDrss DESC";
 			$recuptt = $this->executerRequete($sql);
 			return $recuptt->fetchAll();
 	}
@@ -99,7 +99,7 @@ class Rss extends Modele {
 	//fonction de recherche par mot du titre
 	public function rcrecup($cible) {
 		$texts = "'%".$cible."%'";
-			$sql="SELECT * FROM `rss` WHERE titre LIKE $texts ORDER BY date DESC";
+			$sql="SELECT * FROM `rss` WHERE titre LIKE $texts ORDER BY IDrss DESC";
 			$rech_rss = $this->executerRequete($sql);
 			return $rech_rss->fetchAll();
 	}

@@ -11,7 +11,7 @@ require_once('../../modele/Reference.php');
 ?>
 
 <form name="rechercher" method="POST" class="menu">
-	<input type="text" Placeholder="Rechercher..." name="cherche_mot" size="50" required>
+	<input type="text" Placeholder="Rechercher..." id ="cherche_mot" name="cherche_mot" size="50" required>
 	<input type="submit" name="valid_chercher" value="Go" >
 </form>
 <hr>
@@ -52,3 +52,11 @@ function datcomparer($a, $b)
     return $t2 - $t1;
 }
 ?>
+
+<script>
+   function loadFocus()
+   {
+     document.getElementById('cherche_mot').focus();
+   }
+   window.onload = loadFocus;
+</script>
