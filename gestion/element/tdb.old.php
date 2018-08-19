@@ -8,7 +8,7 @@ $titre_page = "Tableau de bord";
 require ("header.php");
 
 require_once('../../modele/Reference.php');
-require_once('../../modele/Theme.php');
+require_once('../../modele/Theme.php');  
 
 $reference = new Reference();
 $theme = new Theme();
@@ -69,12 +69,14 @@ $taillebdd = (array)$reference->taille_table();
 	<tr><td style="color : black;">TOTAL</td><td style="color : red;font-weight : bold;border-top : solid black 0.5px;"><?php echo $total; ?></td><td style="color : purple;font-weight : bold;border-top : solid black 0.5px;"><span id='projeff'></span></td></tr>
 	<tr>
 </table>
-<!-- calcul écart-type moyenne -->
 
-<!-- Graphe étiole catégories -->
+
 <div id="graphe_categorie">
 <canvas id="myChart" ></canvas>
 </div>
+
+
+
 
 <?php 
 $label = "";
@@ -89,15 +91,16 @@ for($i=0;$i<count($nb_theme);$i++) {
 }
 $label = substr($label,1);
 $cpt = substr($cpt,1);
-
+$ecartype = ecart_type ($tob);
 $moyenne = substr(array_sum($tob)/count($tob),0,4);
 ?>
-<p><?php echo "Moyenne : ".$moyenne; ?></p>
+<p><?php echo "Ecart-type : ".$ecartype." | Moyenne : ".$moyenne; ?></p>
 <div id="liste_theme">
 <canvas id="bar-chart" style="height:200px; width:40vw"></canvas>
+
 </div>
 
-<!-- accés edition -->
+
 <div id="tableau_erreur">
 <table>
 	<tr>
@@ -122,17 +125,13 @@ $moyenne = substr(array_sum($tob)/count($tob),0,4);
 	?>
 </table>
 </div>
-
-<!-- verif url -->
-<span style="padding : 1%;font-size :small;">
+<span style="margin-left : 1%;font-size :small;">
 <form method="GET" action="verifierUrl.php">
 <p>Borne : <input type="text" name="minctlurl" value="1" size="7"></p>
 <p>Nbrel : <input type="text" name="nbctlurl" value="30" size="7"></p>
 <p><input type="submit" value="lancer vérification url"></p>
 </form>
 </span>
-
-<!-- taille BDD -->
 <div id="progression"></div>
 	<hr>
 <div id="taille_bdd">
@@ -154,10 +153,46 @@ $taillet = substr($taillet,1);
 </div>
 <?php require_once('historique.php'); ?>
 
+<?php
+
+function ecart_type ($donnees) {
+    //0 - Nombre d’éléments dans le tableau
+    $population = count($donnees);
+    if ($population != 0) {
+        //1 - somme du tableau
+        $somme_tableau = array_sum($donnees);
+        //2 - Calcul de la moyenne
+        $moyenne = $somme_tableau / $population;
+        //3 - écart pour chaque valeur
+        $ecart = [];
+        for ($i = 0; $i < $population; $i++){
+            //écart entre la valeur et la moyenne
+			
+            $ecart_donnee = $donnees[$i] - $moyenne;
+            //carré de l'écart
+				//$ecart_donnee_carre = bcpow($ecart_donnee, 2, 2);  // bcpow pose probleme et empeche le script de tourner
+				$ecart_donnee_carre = ($ecart_donnee^2);
+            //Insertion dans le tableau
+			
+            array_push($ecart, $ecart_donnee_carre);
+        }
+        //4 - somme des écarts
+        $somme_ecart = array_sum($ecart);
+		
+        //5 - division de la somme des écarts par la population
+        $division = $somme_ecart / $population;
+        //6 - racine carrée de la division 
+		$ecart_type = substr(sqrt($division)*100,0,5);
+        //$ecart_type = bcsqrt ($division, 2); // bcsqrt pose probleme et empeche le script de tourner
+    } else {
+        $ecart_type = "Le tableau est vide";
+    }
+      //7 - renvoi du résultat
+    return $ecart_type;
+}
+?>
 
 
-
-<!-- Scripts Javascripts -->
 <script>
 //Graphe radar des catégories
 var ctx = document.getElementById("myChart");

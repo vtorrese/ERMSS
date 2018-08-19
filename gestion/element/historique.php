@@ -65,12 +65,13 @@
 		document.getElementById('tauxref').innerHTML = tauxref + " %";
 		document.getElementById('tauxrss').innerHTML = tauxrss + " %";		
 		var effthref = maxref;
+		
 		var effthrss = maxrss;
-		while (effthref<effthrss) {
+		/*while (effthref<effthrss) {
 			effthref = (txjrref*maxref*jour)+maxref;
 			effthrss = (txjrrss*maxrss*jour)+maxrss;
 			jour++;
-		}	
+		}	*/
 		
 		//Fixer la date du jour de l'équilibre ref/css
 		datex = new Date(Date.now());
