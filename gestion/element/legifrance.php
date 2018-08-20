@@ -15,7 +15,7 @@ foreach($recup_type as $typ) {
   $boiteMail = 'pop.orange.fr';
   $port = 110;
   $login = 'vincent.torrese@orange.fr';
-  $motDePasse = 'Sp8L34wd';
+  $motDePasse = '';
 
 $imapLink = imap_open('{'.$boiteMail.':'.$port.'/pop3}', $login, $motDePasse);
     // Test sur le retour de la fonction imap_open()

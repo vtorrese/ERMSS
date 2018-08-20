@@ -76,7 +76,7 @@ class Maj extends Modele {
 	
 		// historique cron
 	public function recup_base_histo() {
-		$sql = "SELECT date_cron, origin_cron, duree_cron, nb_cron FROM historique_cron ORDER BY date_cron DESC;";
+		$sql = "SELECT date_cron, origin_cron, duree_cron, nb_cron FROM historique_cron ORDER BY date_cron DESC LIMIT 5;";
 		$sup= $this->executerRequete($sql);
 		return $sup->fetchAll();
 	}
