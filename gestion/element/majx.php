@@ -13,7 +13,7 @@ $basehisto = (array)$list->recup_base_histo();
 ?>
 
 <div style="width : 50%;height:auto;display:inline-block;float:left;border-right : solid black 1px;padding : 1%;">
-<form method='POST' name='validation' action='maj_cron.php'>
+<form method='POST' name='validation' action='maj_cronx.php'>
 <h4>Résultats (<?php echo $cptlist[0]; ?>) <input type="submit" name="valid_maj" value="Valider" style="right : 50%;color:orange;position : fixed;"></h4>
 <table style="font-size:small;">
 	<tr>

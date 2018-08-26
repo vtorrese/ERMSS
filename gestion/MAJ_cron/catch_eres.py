@@ -26,26 +26,26 @@ themes = cHandler.fetchall()
 for items in themes:
     results.append(items[0])
 
-
 ssrequete = ""
 cpt = 0
+taburl = []
 for items in results:
-    # Moteur de recherche google
-    requete = requests.get("https://www.google.fr/search?q=" + items + "&hl=fr&tbm=bks&source=lnt&tbs=sbd:1&sa=X&ved=0ahUKEwiw6PDb9O_cAhWHxYUKHWQCDMUQpwUIIA&biw=1440&bih=763&dpr=1")
+    # Moteur de recherche eres
+    requete = requests.get("https://www.editions-eres.com/recherche/ouvrageContenu/" + items)
     page = requete.content
     soup = BeautifulSoup(page,"html.parser")
-    taburl = []
-    for result in soup.select("div[class=g]"):
-	    titre = result.h3.get_text()
-	    url = result.a['href']
-	    cHandler.execute("SELECT COUNT(*) FROM depot_maj WHERE substring(url,1,45) = '" + url[:45] +"';")
+    
+    for result in soup.select("div[class=searchResult]"):
+	    titre = result.find("strong").get_text()
+	    url = "https://www.editions-eres.com" + result.find("a").get('href')
+	    cHandler.execute("SELECT COUNT(*) FROM depot_maj WHERE url = '" + url +"';")
 	    results = cHandler.fetchall()
 	    for items in results:
-		    if (items[0]<1)and(url[:45] not in taburl):
+		    if (items[0]<1)and(url not in taburl):
 			    # compteur de résultat
 			    cpt = (cpt + 1)
-			    ssrequete += "('google', '" + titre.replace("'", "\\'") + "', '" + url + "', '0'), "
-			    taburl.append(url[:45])
+			    ssrequete += "('eres', '" + titre.replace("'", "\\'") + "', '" + url + "', '0'), "
+			    taburl.append(url)
 
 
 requete = "INSERT INTO `ERMSS`.`depot_maj` (`origine`, `titre`, `url`, `statut`) VALUES "
@@ -59,7 +59,7 @@ if (cpt>1):
 # Fin Calcul temps execution script et mise en log
 tmps2=time.clock()
 duree = (tmps2-tmps1)
-req_histo = "INSERT INTO historique_cron (`date_cron`, `origin_cron`, `duree_cron`,`nb_cron`) VALUES (NOW(), 'google', '" + str(round(duree,2)) + "','" + str(cpt) + "')"
+req_histo = "INSERT INTO historique_cron (`date_cron`, `origin_cron`, `duree_cron`,`nb_cron`) VALUES (NOW(), 'eres', '" + str(round(duree,2)) + "','" + str(cpt) + "')"
 cHandler.execute(req_histo)
 cHandler.close()
 # fichier = open("log_maj.txt", "a")

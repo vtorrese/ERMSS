@@ -1,6 +1,6 @@
 <?php
-require_once 'Modele.php';
-require_once 'Theme.php';
+require_once('Modele.php');
+require_once('Theme.php');
 
 class Maj extends Modele {
 	
@@ -46,11 +46,26 @@ class Maj extends Modele {
 		$sql = "SELECT titre, url, origine FROM depot_maj WHERE iddepot_maj=".$valreq;
 		$sup= $this->executerRequete($sql);
 		$tabres = $sup->fetchAll();
-		if(!$tabres[0][2]=="rss") {
+		
+		
+		if($tabres[0][2]!="rss") {
 			//on integre dans la base de données référence
-			$sql = "INSERT INTO reference (`CE_IDcat`, `titre`, `url`,`vdate`) VALUES (?,?,?,NOW())";
-			$ajout = $this->executerRequete($sql,array(0,$tabres[0][0],$tabres[0][1]));
-		} else
+			$ddat = date("Y-m-d");
+			//var_dump($ddat);
+			$titre = str_replace("'","\'",$tabres[0][0]);
+			$url = str_replace("'","\'",$tabres[0][1]);
+			
+			//Vérification doublon sur url reference
+			$ssql = "SELECT COUNT(*) CPT FROM ERMSS.reference WHERE url = '".$url."'";
+			$ctl = $this->executerRequete($ssql);
+			$tabctl = $ctl->fetch();
+			if($tabctl['CPT']=='0') {
+				$sql = "INSERT INTO reference (`CE_IDcat`, `titre`, `url`,`vdate`) VALUES (0,'".$titre."','".$url."','".$ddat."')";
+				//var_dump($sql);
+				$ajout = $this->executerRequete($sql);
+				}
+			} 
+		else
 		{ //on integre dans la base de données rss
 			$theme = new Theme();
 			$recup_theme = (array)$theme->recup_theme();

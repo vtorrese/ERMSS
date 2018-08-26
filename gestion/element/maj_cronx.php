@@ -1,21 +1,23 @@
 <?php
 require_once('../../modele/Maj.php');
 $list = new Maj();
-	
+
 $tabarchive = $_POST['tabarchive'];
 $tabintegre = $_POST['tabintegre'];
 $intersection = array_intersect($tabintegre, $tabarchive);
 
-// Pour eviter les doublons archie/integre, on les laisse encore dans la liste de résultats
-foreach ($tabarchive as $key=>$value){
-    if (in_array($value,$intersection)){
-        unset($tabarchive[$key]);
-    }
-}
-foreach ($tabintegre as $key=>$value){
-    if (in_array($value,$intersection)){
-        unset($tabintegre[$key]);
-    }
+if((!is_null($intersection))&& (!empty($intersection))) {
+	// Pour eviter les doublons archie/integre, on les laisse encore dans la liste de résultats
+	foreach ($tabarchive as $key=>$value){
+		if (in_array($value,$intersection)){
+			unset($tabarchive[$key]);
+		}
+	}
+	foreach ($tabintegre as $key=>$value){
+		if (in_array($value,$intersection)){
+			unset($tabintegre[$key]);
+		}
+	}
 }
 
 // Gestion de l'archivage des références
@@ -38,5 +40,8 @@ if (count($tabintegre)>0) {
 
 }
 
+
+
 header('Location: majx.php');
+
 ?>

@@ -21,8 +21,12 @@ myDB = MySQLdb.connect(host="192.168.1.34",port=3306,user="Vvinyl",passwd="Caden
 cHandler = myDB.cursor()
 
 # Creation de la liste de themes
-results = ['exclusion','discrimination','prison','protection sociale','emploi','handicap','logement','justice','travail social','psychiatrie']
-# results = ['exclusion']
+results = []
+cHandler.execute("SELECT Nom_theme FROM theme ORDER BY RAND() LIMIT 8;")
+themes = cHandler.fetchall()
+for items in themes:
+    results.append(items[0])
+
 ssrequete = ""
 cpt = 0
 taburl = []
