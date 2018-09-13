@@ -17,7 +17,7 @@ date = datetime.datetime.now()
 annee = str(date.year)
  
 # Connection a la base
-myDB = MySQLdb.connect(host="192.168.1.34",port=3306,user="Vvinyl",passwd="Cadenet-84",db="ERMSS",use_unicode=True,charset="utf8")
+myDB = MySQLdb.connect(host="192.168.1.34",port=3306,user="",passwd="",db="ERMSS",use_unicode=True,charset="utf8")
 cHandler = myDB.cursor()
 
 # Creation de la liste de themes
