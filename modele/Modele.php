@@ -24,9 +24,9 @@ abstract class Modele {
   private function getBdd() {
     if ($this->bdd == null) {
       // Création de la connexion
-     /*$this->bdd = new PDO('mysql:host=db625074085.db.1and1.com;dbname=db625074085;charset=utf8', 'dbo625074085', 'Cadenet.84', array(PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION));
+     /*$this->bdd = new PDO('mysql:host=db625074085.db.1and1.com;dbname=db625074085;charset=utf8', '', '', array(PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION));
 	  */
-	  $this->bdd = new PDO('mysql:host=localhost:3306;dbname=ERMSS;charset=utf8', 'Vvinyl', 'Cadenet-84', array(PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION));
+	  $this->bdd = new PDO('mysql:host=localhost:3306;dbname=ERMSS;charset=utf8', '', '', array(PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION));
     }
     return $this->bdd;
   }
